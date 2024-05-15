@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/apvg68p5xj6yunrj?svg=true)](https://ci.appveyor.com/project/marinaolivekey/aqaweb)
