@@ -13,9 +13,6 @@ compileTestJava.options.encoding = "UTF-8"
 
 repositories {
     mavenCentral()
-//    maven {
-//        url "https://github.com/bonigarcia/webdrivermanager.git"
-//    }
 }
 
 dependencies {
