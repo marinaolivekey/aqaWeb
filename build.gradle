@@ -14,9 +14,9 @@ compileTestJava.options.encoding = "UTF-8"
 repositories {
     mavenCentral()
     google()
-    maven {
-        url "https://github.com/bonigarcia/webdrivermanager.git"
-    }
+//    maven {
+//        url "https://github.com/bonigarcia/webdrivermanager.git"
+//    }
 }
 
 dependencies {
@@ -28,20 +28,6 @@ dependencies {
     // org.seleniumhq.selenium:selenium-java и io.github.bonigarcia:webdrivermanager
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.18.1'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
-
-
-    //1
-    implementation ('com.google.guava:guava:33.0.0-jre'){
-        attributes{
-            attribute(Attribute.of("org.gradle.jvm.environment", String),"standard-jvm")
-        }
-    }
-
-
-    //2
-    //https://mvnrepository.com/artifact/com.google.guava/guava
-//    implementation 'com.google.guava:guava:33.0.0-jre'
-//    implementation 'com.google.guava:guava:19.0'
 }
 
 test {
