@@ -41,7 +41,6 @@ public class OrderAppTestV1 {
     @Test
     void shouldTestHappyPath() throws InterruptedException {
         //поиск элемента
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Петров-Иванов");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991234567");
 
@@ -56,7 +55,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidInputIfNothingEntered() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.className("button")).click();
         String text = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
 
@@ -65,7 +63,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidInputIfNameNotPhoneYesCheckBoxYes() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991234567");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
@@ -76,7 +73,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidInputIfNameEnteredPhoneNotCheckBoxYes() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Петров-Иванов");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
@@ -87,18 +83,16 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidInputIfNameEnteredPhoneYesCheckBoxNot() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Петров-Иванов");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991234567");
         driver.findElement(By.className("button")).click();
-        String text = driver.findElement(By.className("input_invalid")).getText();
+        String text = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid .checkbox__text")).getText();
 
         assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй", text.trim());
     }
 
     @Test
     void shouldShowInvalidIfNameEnglish() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Ivan petrov");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991234567");
         driver.findElement(By.className("checkbox__box")).click();
@@ -110,7 +104,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidIfNameSpecialCharacters() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("!!! @@@");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991234567");
         driver.findElement(By.className("checkbox__box")).click();
@@ -122,7 +115,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldAcceptIfSpaceBeforeName() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys(" Рита Маргарита");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991234567");
         driver.findElement(By.className("checkbox__box")).click();
@@ -134,7 +126,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidIfSpaceOnly() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys(" ");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991234567");
         driver.findElement(By.className("checkbox__box")).click();
@@ -146,7 +137,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidIfNameNotFull() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Ольга");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79123456789");
         driver.findElement(By.className("checkbox__box")).click();
@@ -158,7 +148,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldAcceptIfNamesIsOneLetter() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Ю Ю");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991234567");
         driver.findElement(By.className("checkbox__box")).click();
@@ -170,7 +159,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldAcceptIfName100Letters() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Напу Амо Хала Она Она Анека Вехи Вехи Она Хивеа Нена Вава Кехо Онка Кахе Хеа Леке Еа Она Ней Нана Ниа Кеко Оа Ога Ван Ика Ванао");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79123456789");
         driver.findElement(By.className("checkbox__box")).click();
@@ -182,7 +170,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidIfNameStartWithDash() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("-Ольга Петров");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79123456789");
         driver.findElement(By.className("checkbox__box")).click();
@@ -194,7 +181,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidIfNameEndsWithDash() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Ольга Петров-");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79123456789");
         driver.findElement(By.className("checkbox__box")).click();
@@ -206,7 +192,6 @@ public class OrderAppTestV1 {
 
     @Test
     void shouldShowInvalidIfPhoneIsNotCorrect() throws InterruptedException {
-        WebElement form = driver.findElement(By.className("form"));
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Петров-Долгих Ольга");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("Qwerty");
         driver.findElement(By.className("checkbox__box")).click();
